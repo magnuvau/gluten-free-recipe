@@ -11,7 +11,7 @@ import no.oslo.torshov.pfb.data.model.Recipe
 @Dao
 interface RecipeDao {
 
-    @Query("SELECT * FROM recipes ORDER BY id DESC")
+    @Query("SELECT * FROM recipes")
     suspend fun getAll(): List<Recipe>
 
     @Query("SELECT * FROM recipes WHERE id = :id")

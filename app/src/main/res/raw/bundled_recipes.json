@@ -2,6 +2,48 @@
   "version": 1,
   "recipes": [
     {
+      "name": "🥯 Kanelboller (E415,E464)",
+      "category": "Boller",
+      "ingredients": [
+        "500 g Semper Mix Fiber melblanding",
+        "1 pose tørrgjær (eller 25 g fersk gjær)",
+        "1 ts salt",
+        "50 g sukker",
+        "1 ts xantangummi (E415)",
+        "1 ts HPMC (E464)",
+        "3 dl lunkent melk",
+        "2 ss smør eller olje",
+        "1 egg (valgfritt)",
+        "— Fyll —",
+        "50 g smør, mykt",
+        "50 g sukker",
+        "2 ts kanel"
+      ],
+      "steps": [
+        "Bland mel, tørrgjær, salt og sukker i en bolle.",
+        "Rør ut xantangummi (E415) og HPMC (E464) i det lunkne melket. Tilsett smør/olje og egg og rør godt.",
+        "Hell væskeblandingen i melet og elt til en jevn, klisset deig.",
+        "La deigen heve tildekket i 30–45 minutter.",
+        "Kjevle deigen til et rektangel ca. 1 cm tykk.",
+        "Bland mykt smør, sukker og kanel og smør fyllet jevnt over deigen.",
+        "Rull deigen sammen på langs og skjær i 10–12 biter.",
+        "Plasser bollene på bakepapir og la etterheve i 20–30 minutter.",
+        "Stek på 200°C i 15–20 minutter til gyldne.",
+        "Avkjøl på rist før servering."
+      ],
+      "tips": [
+        "Deigen skal være klissete – fukt hender med vann eller olje ved forming.",
+        "Elt godt for at E415 og E464 skal gi best mulig struktur.",
+        "Dryss gjerne perlesukker på toppen før steking for ekstra pynt."
+      ],
+      "commonMistakes": [
+        "For lite væske – deigen blir tørr og vanskelig å forme.",
+        "Overknaing – glutenfri deig blir gummiaktig om man elter for lenge.",
+        "For kort hevetid – bollene blir kompakte.",
+        "For høy temperatur – bollene blir brent utenpå og rå inni."
+      ]
+    },
+    {
       "name": "🍞 Brød (E415)",
       "category": "Brød",
       "ingredients": [
@@ -76,40 +118,6 @@
         "For kort miksing gir dårlig struktur.",
         "Overheving — brødet kollapser i ovnen."
       ]
-    },
-    {
-      "name": "🥯 Rundstykker - best for glutenfri (E415, E464)",
-      "category": "Rundstykker",
-      "ingredients": [
-        "— Tørre —",
-        "500 g Semper Mix Fiber",
-        "1 pose tørrgjær",
-        "1 ts salt",
-        "1 ss honning eller sukker",
-        "— Våte —",
-        "1 ts xantangummi (E415)",
-        "1 ts HPMC (E464)",
-        "4,5–5 dl lunkent vann",
-        "3 ss olje"
-      ],
-      "steps": [
-        "Bland mel, tørrgjær, salt og honning/sukker i en stor bolle.",
-        "Rør ut xantangummi (E415) og HPMC (E464) i det lunkne vannet. Tilsett olje og rør godt.",
-        "Hell væskeblandingen i melblandingen og elt godt i kjøkkenmaskin.",
-        "La deigen hvile i 10–15 min — viktig for konsistens.",
-        "Form rundstykker med våte hender eller skje og legg på bakepapir.",
-        "Hev i 30 min.",
-        "Stek på 220°C i 15–20 min."
-      ],
-      "tips": [
-        "Pensle med vann og strø på frø før steking.",
-        "Sett en liten bolle med vann i ovnen for sprøere skorpe.",
-        "Litt yoghurt eller kesam i deigen gir ekstra saftig resultat.",
-        "Glutenfri deig skal være mer som tykk røre enn vanlig deig.",
-        "Ikke kna for hånd — bruk maskin.",
-        "Ikke tilsett for mye mel — da blir det tørt."
-      ],
-      "commonMistakes": []
     },
     {
       "name": "🍞 Brød (E415, E464)",
@@ -268,6 +276,196 @@
       "commonMistakes": []
     },
     {
+      "name": "🫓  Flatbrød",
+      "category": "Flatbrød",
+      "ingredients": [
+        "300 g Semper Mix Fiber melblanding",
+        "0.5 ts salt",
+        "2.5 dl vann",
+        "1 ss olje"
+      ],
+      "steps": [
+        "Bland mel og salt i en bolle.",
+        "Tilsett vann og olje, og rør til en jevn deig.",
+        "La deigen hvile i 10–15 minutter.",
+        "Del deigen i små emner.",
+        "Kjevle hvert emne veldig tynt mellom bakepapir eller med litt ekstra mel.",
+        "Stek i tørr stekepanne på middels varme til flatbrødet er tørt og har fått brune flekker.",
+        "Avkjøl på rist – det blir sprøere etter hvert."
+      ],
+      "tips": [
+        "Kjevle så tynt som mulig for sprøtt resultat.",
+        "Stek på relativt lav varme slik at de tørker uten å brenne seg.",
+        "Prikk deigen med gaffel for jevn steking."
+      ],
+      "commonMistakes": [
+        "For tykk deig gir mykt i stedet for sprøtt flatbrød.",
+        "For høy varme brenner brødet før det tørker.",
+        "For lite hviletid gjør deigen vanskelig å kjevle.",
+        "For mye mel under kjevling kan gjøre flatbrødet tørt."
+      ]
+    },
+    {
+      "name": "🥞 Pannekaker (rismel)",
+      "category": "Pannekaker",
+      "ingredients": [
+        "3 egg",
+        "4 dl rismel",
+        "5 dl melk",
+        "1 ts salt",
+        "2 ss smør (til steking)"
+      ],
+      "steps": [
+        "Visp egg og melk godt sammen",
+        "Tilsett rismel og salt, rør til en jevn røre uten klumper",
+        "La røren hvile i minst 30 minutter",
+        "Varm opp stekepannen på middels varme og smelt litt smør",
+        "Hell en øse røre i pannen og fordel jevnt",
+        "Stek til overflaten er fast, ca. 2 minutter, vend og stek 1 minutt til"
+      ],
+      "tips": [
+        "Røren blir enda bedre hvis den hviler i kjøleskap over natten",
+        "Bruk gjerne en non-stick panne for best resultat"
+      ],
+      "commonMistakes": [
+        "For høy varme gjør at pannekakene blir for mørke utenpå og rå inni",
+        "Ikke la røren hvile lenge nok — rismelet trenger tid til å suge til seg væske"
+      ]
+    },
+    {
+      "name": "🥞 Pannekaker (Mix Fiber)",
+      "category": "Pannekaker",
+      "ingredients": [
+        "3 egg",
+        "3 dl Semper Mix Fiber melblanding",
+        "5 dl melk",
+        "1 ts salt",
+        "2 ss smør (til steking)"
+      ],
+      "steps": [
+        "Visp egg og melk godt sammen.",
+        "Tilsett Semper Mix Fiber og salt, og visp til en jevn røre uten klumper.",
+        "La røren hvile i 15–20 minutter slik at melet får hydrert seg.",
+        "Varm opp en stekepanne på middels varme og smelt litt smør.",
+        "Hell en øse røre i pannen og fordel jevnt.",
+        "Stek til overflaten har satt seg, ca. 1–2 minutter, snu og stek 1 minutt til.",
+        "Gjenta med resten av røren."
+      ],
+      "tips": [
+        "Semper Mix Fiber suger mer væske enn rismel – juster med litt ekstra melk hvis røren blir for tykk.",
+        "La røren hvile – det gir mye bedre konsistens.",
+        "Bruk middels varme for jevn steking."
+      ],
+      "commonMistakes": [
+        "For tykk røre – gir kompakte pannekaker.",
+        "For høy varme – de blir fort brent utenpå.",
+        "Ikke vispe godt nok – kan gi klumper.",
+        "Ikke la røren hvile – dårlig tekstur."
+      ]
+    },
+    {
+      "name": "🥞 Pannekaker",
+      "category": "Pannekaker",
+      "ingredients": [
+        "3 egg",
+        "5 dl melk",
+        "2.5 dl Semper Mix Fiber melblanding",
+        "1 ss sukker (valgfritt)",
+        "0.5 ts salt",
+        "2 ss smør, smeltet"
+      ],
+      "steps": [
+        "Visp egg og melk godt sammen i en bolle.",
+        "Tilsett mel, sukker og salt, og visp til en jevn røre.",
+        "Rør inn smeltet smør.",
+        "La røren hvile i 15–20 minutter.",
+        "Varm opp en stekepanne på middels varme og ha i litt smør.",
+        "Hell i en øse røre og fordel jevnt i pannen.",
+        "Stek til overflaten har satt seg, snu og stek ferdig.",
+        "Gjenta med resten av røren."
+      ],
+      "tips": [
+        "Juster med litt ekstra melk hvis røren blir for tykk.",
+        "La røren hvile – det gir bedre konsistens.",
+        "Stek på middels varme for jevnt resultat."
+      ],
+      "commonMistakes": [
+        "For tykk røre gir kompakte pannekaker.",
+        "For høy varme brenner pannekakene.",
+        "Ikke la røren hvile – gir dårligere tekstur.",
+        "For lite fett i pannen gjør at de setter seg fast."
+      ]
+    },
+    {
+      "name": "🥞 Fluffy pannekaker",
+      "category": "Pannekaker",
+      "ingredients": [
+        "2 egg",
+        "3 dl melk",
+        "2 dl Semper Mix Fiber melblanding",
+        "2 ts bakepulver",
+        "1 ss sukker",
+        "0.5 ts salt",
+        "2 ss smør, smeltet"
+      ],
+      "steps": [
+        "Visp egg og melk lett sammen i en bolle.",
+        "Bland mel, bakepulver, sukker og salt i en egen bolle.",
+        "Rør det tørre inn i det våte til en jevn røre.",
+        "Tilsett smeltet smør og rør forsiktig.",
+        "La røren hvile i 10–15 minutter.",
+        "Varm opp en stekepanne på middels varme og ha i litt smør.",
+        "Hell små porsjoner røre i pannen (de skal være tykke).",
+        "Stek til det dannes bobler på toppen, snu og stek ferdig.",
+        "Server varme."
+      ],
+      "tips": [
+        "Ikke rør for mye – det gir luftigere pancakes.",
+        "Røren skal være tykk, ikke flytende.",
+        "Stek på middels/lav varme så de blir gjennomstekt."
+      ],
+      "commonMistakes": [
+        "For tynn røre gir flate pancakes.",
+        "For høy varme gjør dem brent utenpå og rå inni.",
+        "For mye røring gir kompakte pancakes.",
+        "For lite bakepulver gir dårlig heving."
+      ]
+    },
+    {
+      "name": "🥯 Rundstykker - best for glutenfri (E415, E464)",
+      "category": "Rundstykker",
+      "ingredients": [
+        "— Tørre —",
+        "500 g Semper Mix Fiber",
+        "1 pose tørrgjær",
+        "1 ts salt",
+        "1 ss honning eller sukker",
+        "— Våte —",
+        "1 ts xantangummi (E415)",
+        "1 ts HPMC (E464)",
+        "4,5–5 dl lunkent vann",
+        "3 ss olje"
+      ],
+      "steps": [
+        "Bland mel, tørrgjær, salt og honning/sukker i en stor bolle.",
+        "Rør ut xantangummi (E415) og HPMC (E464) i det lunkne vannet. Tilsett olje og rør godt.",
+        "Hell væskeblandingen i melblandingen og elt godt i kjøkkenmaskin.",
+        "La deigen hvile i 10–15 min — viktig for konsistens.",
+        "Form rundstykker med våte hender eller skje og legg på bakepapir.",
+        "Hev i 30 min.",
+        "Stek på 220°C i 15–20 min."
+      ],
+      "tips": [
+        "Pensle med vann og strø på frø før steking.",
+        "Sett en liten bolle med vann i ovnen for sprøere skorpe.",
+        "Litt yoghurt eller kesam i deigen gir ekstra saftig resultat.",
+        "Glutenfri deig skal være mer som tykk røre enn vanlig deig.",
+        "Ikke kna for hånd — bruk maskin.",
+        "Ikke tilsett for mye mel — da blir det tørt."
+      ],
+      "commonMistakes": []
+    },
+    {
       "name": "🥯🌾 Elite grove & luftige rundstykker (E415)",
       "category": "Rundstykker",
       "ingredients": [
@@ -312,64 +510,6 @@
       "commonMistakes": []
     },
     {
-      "name": "\uD83E\uDD5E Pannekaker (rismel)",
-      "category": "Pannekaker",
-      "ingredients": [
-        "3 egg",
-        "4 dl rismel",
-        "5 dl melk",
-        "1 ts salt",
-        "2 ss smør (til steking)"
-      ],
-      "steps": [
-        "Visp egg og melk godt sammen",
-        "Tilsett rismel og salt, rør til en jevn røre uten klumper",
-        "La røren hvile i minst 30 minutter",
-        "Varm opp stekepannen på middels varme og smelt litt smør",
-        "Hell en øse røre i pannen og fordel jevnt",
-        "Stek til overflaten er fast, ca. 2 minutter, vend og stek 1 minutt til"
-      ],
-      "tips": [
-        "Røren blir enda bedre hvis den hviler i kjøleskap over natten",
-        "Bruk gjerne en non-stick panne for best resultat"
-      ],
-      "commonMistakes": [
-        "For høy varme gjør at pannekakene blir for mørke utenpå og rå inni",
-        "Ikke la røren hvile lenge nok — rismelet trenger tid til å suge til seg væske"
-      ]
-    },
-    {
-      "name": "\uD83E\uDD5E Pannekaker (Mix Fiber)",
-      "category": "Pannekaker",
-      "ingredients": [
-        "3 egg",
-        "3 dl Semper Mix Fiber melblanding",
-        "5 dl melk",
-        "1 ts salt",
-        "2 ss smør (til steking)"
-      ],
-      "steps": [
-        "Visp egg og melk godt sammen.",
-        "Tilsett Semper Mix Fiber og salt, og visp til en jevn røre uten klumper.",
-        "La røren hvile i 15–20 minutter slik at melet får hydrert seg.",
-        "Varm opp en stekepanne på middels varme og smelt litt smør.",
-        "Hell en øse røre i pannen og fordel jevnt.",
-        "Stek til overflaten har satt seg, ca. 1–2 minutter, snu og stek 1 minutt til.",
-        "Gjenta med resten av røren."
-      ],
-      "tips": [
-        "Semper Mix Fiber suger mer væske enn rismel – juster med litt ekstra melk hvis røren blir for tykk.",
-        "La røren hvile – det gir mye bedre konsistens.",
-        "Bruk middels varme for jevn steking."
-      ],
-      "commonMistakes": [
-        "For tykk røre – gir kompakte pannekaker.",
-        "For høy varme – de blir fort brent utenpå.",
-        "Ikke vispe godt nok – kan gi klumper.",
-        "Ikke la røren hvile – dårlig tekstur."
-      ]
-    },
-    {
       "name": "🥯 Rundstykker (E415)",
       "category": "Rundstykker",
       "ingredients": [
@@ -405,7 +545,7 @@
       ]
     },
     {
-      "name": "\uD83E\uDD6F Rundstykker (psyllium)",
+      "name": "🥯 Rundstykker (psyllium)",
       "category": "Rundstykker",
       "ingredients": [
         "500 g Semper Mix Fiber melblanding",
@@ -442,7 +582,7 @@
       ]
     },
     {
-      "name": "\uD83E\uDD6F Rundstykker (chiafrø)",
+      "name": "🥯 Rundstykker (chiafrø)",
       "category": "Rundstykker",
       "ingredients": [
         "500 g Semper Mix Fiber melblanding",
@@ -479,7 +619,7 @@
       ]
     },
     {
-      "name": "\uD83E\uDD6F Rundstykker (enkle)",
+      "name": "🥯 Rundstykker (enkle)",
       "category": "Rundstykker",
       "ingredients": [
         "500 g Semper Mix Fiber melblanding",
@@ -547,7 +687,7 @@
       ]
     },
     {
-      "name": "\uD83E\uDD50 Scones",
+      "name": "🥐 Scones",
       "category": "Scones",
       "ingredients": [
         "300 g Semper Mix Fiber melblanding",
@@ -581,37 +721,7 @@
       ]
     },
     {
-      "name": "\uD83E\uDED3  Flatbrød",
-      "category": "Flatbrød",
-      "ingredients": [
-        "300 g Semper Mix Fiber melblanding",
-        "0.5 ts salt",
-        "2.5 dl vann",
-        "1 ss olje"
-      ],
-      "steps": [
-        "Bland mel og salt i en bolle.",
-        "Tilsett vann og olje, og rør til en jevn deig.",
-        "La deigen hvile i 10–15 minutter.",
-        "Del deigen i små emner.",
-        "Kjevle hvert emne veldig tynt mellom bakepapir eller med litt ekstra mel.",
-        "Stek i tørr stekepanne på middels varme til flatbrødet er tørt og har fått brune flekker.",
-        "Avkjøl på rist – det blir sprøere etter hvert."
-      ],
-      "tips": [
-        "Kjevle så tynt som mulig for sprøtt resultat.",
-        "Stek på relativt lav varme slik at de tørker uten å brenne seg.",
-        "Prikk deigen med gaffel for jevn steking."
-      ],
-      "commonMistakes": [
-        "For tykk deig gir mykt i stedet for sprøtt flatbrød.",
-        "For høy varme brenner brødet før det tørker.",
-        "For lite hviletid gjør deigen vanskelig å kjevle.",
-        "For mye mel under kjevling kan gjøre flatbrødet tørt."
-      ]
-    },
-    {
-      "name": "\uD83E\uDDC7 Vafler",
+      "name": "🧇 Vafler",
       "category": "Vafler",
       "ingredients": [
         "3 egg",
@@ -641,48 +751,6 @@
         "For lite steketid gir myke og ustekte vafler.",
         "For høy varme kan brenne vaflene.",
         "Ikke la røren hvile – gir dårligere resultat."
-      ]
-    },
-    {
-      "name": "🥯 Kanelboller (E415,E464)",
-      "category": "Boller",
-      "ingredients": [
-        "500 g Semper Mix Fiber melblanding",
-        "1 pose tørrgjær (eller 25 g fersk gjær)",
-        "1 ts salt",
-        "50 g sukker",
-        "1 ts xantangummi (E415)",
-        "1 ts HPMC (E464)",
-        "3 dl lunkent melk",
-        "2 ss smør eller olje",
-        "1 egg (valgfritt)",
-        "— Fyll —",
-        "50 g smør, mykt",
-        "50 g sukker",
-        "2 ts kanel"
-      ],
-      "steps": [
-        "Bland mel, tørrgjær, salt og sukker i en bolle.",
-        "Rør ut xantangummi (E415) og HPMC (E464) i det lunkne melket. Tilsett smør/olje og egg og rør godt.",
-        "Hell væskeblandingen i melet og elt til en jevn, klisset deig.",
-        "La deigen heve tildekket i 30–45 minutter.",
-        "Kjevle deigen til et rektangel ca. 1 cm tykk.",
-        "Bland mykt smør, sukker og kanel og smør fyllet jevnt over deigen.",
-        "Rull deigen sammen på langs og skjær i 10–12 biter.",
-        "Plasser bollene på bakepapir og la etterheve i 20–30 minutter.",
-        "Stek på 200°C i 15–20 minutter til gyldne.",
-        "Avkjøl på rist før servering."
-      ],
-      "tips": [
-        "Deigen skal være klissete – fukt hender med vann eller olje ved forming.",
-        "Elt godt for at E415 og E464 skal gi best mulig struktur.",
-        "Dryss gjerne perlesukker på toppen før steking for ekstra pynt."
-      ],
-      "commonMistakes": [
-        "For lite væske – deigen blir tørr og vanskelig å forme.",
-        "Overknaing – glutenfri deig blir gummiaktig om man elter for lenge.",
-        "For kort hevetid – bollene blir kompakte.",
-        "For høy temperatur – bollene blir brent utenpå og rå inni."
       ]
     }
   ]

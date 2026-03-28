@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import no.oslo.torshov.pfb.R
 import no.oslo.torshov.pfb.data.model.Recipe
 import no.oslo.torshov.pfb.ui.RecipeDetailActivity
@@ -62,24 +60,6 @@ class MainRecipeListFragment : Fragment() {
             startActivity(intent)
         }
         recyclerView.adapter = adapter
-
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(rv: RecyclerView, vh: RecyclerView.ViewHolder, t: RecyclerView.ViewHolder) = false
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                val recipe = adapter.currentList[position]
-                adapter.notifyItemChanged(position)
-                MaterialAlertDialogBuilder(requireContext())
-                    .setTitle(R.string.delete_confirm_title)
-                    .setMessage(getString(R.string.delete_confirm_message, recipe.name))
-                    .setPositiveButton(R.string.delete) { _, _ -> viewModel.deleteRecipe(recipe) }
-                    .setNegativeButton(R.string.cancel, null)
-                    .show()
-            }
-        }).attachToRecyclerView(recyclerView)
 
         val liveData = if (withThickeners) viewModel.recipesWithThickeners else viewModel.recipesWithoutThickeners
         liveData.observe(viewLifecycleOwner) { recipes ->

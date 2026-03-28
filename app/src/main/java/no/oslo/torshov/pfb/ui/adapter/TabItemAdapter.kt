@@ -5,7 +5,6 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.DiffUtil
@@ -51,9 +50,9 @@ class TabItemAdapter(
         private var isSplitting = false
 
         init {
-            binding.dragHandle.setOnTouchListener { _, event ->
-                if (event.actionMasked == MotionEvent.ACTION_DOWN) onStartDrag(this)
-                false
+            binding.root.setOnLongClickListener {
+                onStartDrag(this)
+                true
             }
             binding.buttonEdit.setOnClickListener {
                 setEditable(true)

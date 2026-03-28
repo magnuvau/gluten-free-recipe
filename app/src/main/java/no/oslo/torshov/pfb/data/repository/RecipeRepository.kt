@@ -5,7 +5,9 @@ import no.oslo.torshov.pfb.data.model.Recipe
 
 class RecipeRepository(private val dao: RecipeDao) {
 
-    suspend fun getAll(): List<Recipe> = dao.getAll()
+    suspend fun getAll(): List<Recipe> = dao.getAll().sortedBy { it.sortKey() }
+
+    private fun Recipe.sortKey() = name.trimStart { !it.isLetter() }.lowercase()
 
     suspend fun getById(id: Long): Recipe? = dao.getById(id)
 
