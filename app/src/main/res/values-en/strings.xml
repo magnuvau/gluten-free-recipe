@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gluten-Free Recipe</string>
+
+    <!-- Main screen -->
+    <string name="empty_recipes">No recipes yet.\nTap + to add one.</string>
+    <string name="empty_with_thickeners">No recipes with thickeners</string>
+    <string name="empty_without_thickeners">No recipes without thickeners</string>
+    <string name="tab_with_thickeners">With thickeners</string>
+    <string name="tab_without_thickeners">Without thickeners</string>
+    <string name="tab_calendar">Calendar</string>
+    <string name="day_note_hint">Write notes for this day…</string>
+    <string name="category_title">Select category</string>
+    <string name="category_all">All</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="hint_recipe_name">Recipe name</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Tabs (used as content descriptions) -->
+    <string name="tab_ingredients">Ingredients</string>
+    <string name="tab_steps">Steps</string>
+    <string name="tab_tips">Tips</string>
+    <string name="tab_common_mistakes">Common mistakes</string>
+
+    <!-- Tab content -->
+    <string name="empty_tab">Tap + to add</string>
+    <string name="add_item">Add</string>
+    <string name="hint_item">New item</string>
+    <string name="delete_item">Delete</string>
+    <string name="edit_item">Edit</string>
+    <string name="hint_tips">Write tips here…</string>
+    <string name="done">Done</string>
+    <string name="drag_handle">Drag to reorder</string>
+
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="hint_ingredient">New ingredient</string>
+
+    <string name="add_step">Add step</string>
+    <string name="hint_step">New step</string>
+
+    <string name="add_tip">Add tip</string>
+    <string name="hint_tip">New tip</string>
+
+    <string name="add_common_mistake">Add common mistake</string>
+    <string name="hint_common_mistake">Common mistake</string>
+
+    <!-- Export / Import -->
+    <string name="action_export">Share recipes</string>
+    <string name="action_export_pdf">Export as PDF</string>
+    <string name="action_import">Import recipes</string>
+    <string name="action_delete_all">Delete all recipes</string>
+    <string name="action_about">About</string>
+    <string name="about_message">Gluten-Free Recipe\nVersion %s\n\nAn app for collecting and sharing gluten-free recipes.</string>
+    <string name="delete_all_confirm_title">Delete all recipes?</string>
+    <string name="delete_all_confirm_message">All recipes will be permanently deleted.</string>
+    <string name="action_share_recipe">Share recipe</string>
+    <string name="export_subject">Gluten-free recipes</string>
+    <string name="import_success">%d recipe(s) imported</string>
+    <string name="import_error">Could not read the file</string>
+
+    <!-- Delete -->
+    <string name="action_delete_recipe">Delete recipe</string>
+    <string name="recipe_deleted">Recipe deleted</string>
+    <string name="undo">Undo</string>
+    <string name="delete_confirm_title">Delete recipe?</string>
+    <string name="delete_confirm_message">"%s" will be permanently deleted.</string>
+    <string name="delete">Delete</string>
+
+    <!-- Rename / Edit -->
+    <string name="action_rename_recipe">Rename</string>
+    <string name="rename_recipe">Rename recipe</string>
+    <string name="save">Save</string>
+</resources>

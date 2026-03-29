@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         val version = packageManager.getPackageInfo(packageName, 0).versionName
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.action_about)
-            .setMessage("Glutenfrie Oppskrifter\nVersjon $version\n\nEn app for å samle og dele glutenfrie oppskrifter.")
+            .setMessage(getString(R.string.about_message, version))
             .setPositiveButton(android.R.string.ok, null)
             .show()
     }
