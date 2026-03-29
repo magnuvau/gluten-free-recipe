@@ -306,6 +306,82 @@
       ]
     },
     {
+      "name": "\uD83E\uDED3 Naan  (E415,E464)",
+      "category": "Brød",
+      "ingredients": [
+        "400 g Semper Mix Fiber melblanding",
+        "1 ts xantangummi (E415)",
+        "1 ts HPMC (E464)",
+        "1 pose tørrgjær",
+        "1 ts salt",
+        "1 ss sukker",
+        "2 dl yoghurt naturell",
+        "2 dl lunkent vann",
+        "2 ss olje"
+      ],
+      "steps": [
+        "Visp xantangummi (E415) og HPMC (E464) inn i det lunkne vannet til det er jevnt fordelt.",
+        "La blandingen stå i 5–10 minutter slik at den tykner lett.",
+        "Bland mel, tørrgjær, salt og sukker i en bolle.",
+        "Tilsett yoghurt, olje og væsken med hydrerte bindemidler.",
+        "Rør eller elt godt i 5–8 minutter til en jevn og klisset deig.",
+        "La deigen heve tildekket i 45–60 minutter.",
+        "Del deigen i 6–8 emner.",
+        "Trykk eller kjevle hvert emne flatt (ca. 0.5–1 cm tykke).",
+        "Stek i varm, tørr stekepanne på høy varme.",
+        "Stek 2–3 minutter per side til de får brune flekker.",
+        "Pensle gjerne med smør eller hvitløkssmør etter steking."
+      ],
+      "tips": [
+        "Hydrering av E415 og E464 gir jevnere struktur og bedre elastisitet.",
+        "Deigen skal være myk og litt klisset – ikke tilsett for mye mel.",
+        "Bruk høy varme for å få autentiske stekeflekker."
+      ],
+      "commonMistakes": [
+        "Ikke hydrere bindemidlene først – kan gi klumper og ujevn tekstur.",
+        "For tørr deig – gir harde naan.",
+        "For lav varme – gir bleke og tørre brød.",
+        "For tykk utkjevling – blir tung og lite luftig."
+      ]
+    },
+    {
+      "name": "\uD83E\uDED3 Naan (psyllium)",
+      "category": "Brød",
+      "ingredients": [
+        "400 g Semper Mix Fiber melblanding",
+        "2 ss psyllium husk (loppefrøskall)",
+        "1 pose tørrgjær",
+        "1 ts salt",
+        "1 ss sukker",
+        "2 dl yoghurt naturell",
+        "2.5 dl lunkent vann",
+        "2 ss olje"
+      ],
+      "steps": [
+        "Bland psyllium husk med lunkent vann og la det svelle i 5–10 minutter til en gelé.",
+        "Bland mel, tørrgjær, salt og sukker i en bolle.",
+        "Tilsett yoghurt, olje og psyllium-geléen.",
+        "Rør godt i 5–8 minutter til en jevn og klisset deig.",
+        "La deigen heve tildekket i 45–60 minutter.",
+        "Del deigen i 6–8 emner.",
+        "Trykk eller kjevle hvert emne flatt (ca. 0.5–1 cm tykke).",
+        "Stek i varm, tørr stekepanne på høy varme.",
+        "Stek 2–3 minutter per side til de får brune flekker.",
+        "Pensle gjerne med smør etter steking."
+      ],
+      "tips": [
+        "Psyllium må få svelle skikkelig for best struktur.",
+        "Deigen skal være myk og litt klisset – ikke tilsett for mye mel.",
+        "Høy varme gir best resultat og riktig naan-tekstur."
+      ],
+      "commonMistakes": [
+        "Ikke la psyllium svelle – gir dårlig binding.",
+        "For tørr deig – gir harde naan.",
+        "For lav steketemperatur – gir bleke og tørre brød.",
+        "For tykk utkjevling – blir tung og lite luftig."
+      ]
+    },
+    {
       "name": "🥞 Pannekaker (rismel)",
       "category": "Pannekaker",
       "ingredients": [
