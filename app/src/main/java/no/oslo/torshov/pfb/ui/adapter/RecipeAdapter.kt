@@ -15,7 +15,15 @@ class RecipeAdapter(
 ) : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DiffCallback()) {
 
     var recipesWithExperiences: Set<Long> = emptySet()
-        set(value) { field = value; notifyDataSetChanged() }
+        set(value) {
+            val changed = field.union(value) - field.intersect(value)
+            field = value
+            val current = currentList
+            changed.forEach { id ->
+                val pos = current.indexOfFirst { it.id == id }
+                if (pos != -1) notifyItemChanged(pos)
+            }
+        }
 
     inner class ViewHolder(private val binding: ItemRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,7 +34,10 @@ class RecipeAdapter(
             binding.iconExperiences.visibility = if (recipe.id in recipesWithExperiences) android.view.View.VISIBLE else android.view.View.GONE
             binding.iconExperiences.setOnClickListener { onExperiencesClick(recipe) }
             binding.root.setOnClickListener { onClick(recipe) }
-            binding.root.setOnLongClickListener { onLongClick(recipe); true }
+            binding.root.setOnLongClickListener {
+                if (recipe.id !in recipesWithExperiences) { onLongClick(recipe) }
+                true
+            }
         }
     }
 

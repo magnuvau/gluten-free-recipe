@@ -143,8 +143,14 @@ class DateExperienceAdapter(
     private val expandedIds = mutableSetOf<Long>()
 
     fun submitList(list: List<RecipeExperience>) {
+        val diff = androidx.recyclerview.widget.DiffUtil.calculateDiff(object : androidx.recyclerview.widget.DiffUtil.Callback() {
+            override fun getOldListSize() = items.size
+            override fun getNewListSize() = list.size
+            override fun areItemsTheSame(o: Int, n: Int) = items[o].id == list[n].id
+            override fun areContentsTheSame(o: Int, n: Int) = items[o] == list[n]
+        })
         items = list
-        notifyDataSetChanged()
+        diff.dispatchUpdatesTo(this)
     }
 
     inner class ViewHolder(val binding: ItemExperienceBinding) : RecyclerView.ViewHolder(binding.root)

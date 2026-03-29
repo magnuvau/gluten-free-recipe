@@ -162,6 +162,10 @@ class ExperiencesActivity : AppCompatActivity() {
                         date = date,
                         note = input.text?.toString()?.trim() ?: ""
                     ))
+                    val recipeDao = AppDatabase.getInstance(this@ExperiencesActivity).recipeDao()
+                    recipeDao.getById(recipeId)?.let { recipe ->
+                        if (!recipe.tested) recipeDao.update(recipe.copy(tested = true))
+                    }
                     loadExperiences()
                 }
             }
@@ -179,8 +183,14 @@ class ExperienceAdapter(
     private var items: List<RecipeExperience> = emptyList()
 
     fun submitList(list: List<RecipeExperience>) {
+        val diff = androidx.recyclerview.widget.DiffUtil.calculateDiff(object : androidx.recyclerview.widget.DiffUtil.Callback() {
+            override fun getOldListSize() = items.size
+            override fun getNewListSize() = list.size
+            override fun areItemsTheSame(o: Int, n: Int) = items[o].id == list[n].id
+            override fun areContentsTheSame(o: Int, n: Int) = items[o] == list[n]
+        })
         items = list
-        notifyDataSetChanged()
+        diff.dispatchUpdatesTo(this)
     }
 
     private val expandedIds = mutableSetOf<Long>()
