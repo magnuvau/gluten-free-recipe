@@ -1,4 +1,4 @@
-# Glutenfri Oppskrifter
+# Glutenfrie Oppskrifter
 
 An Android app for managing gluten-free recipes, built with Kotlin and MVVM architecture.
 

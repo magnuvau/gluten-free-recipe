@@ -77,7 +77,17 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.action_delete_all -> { confirmDeleteAll(); true }
+        R.id.action_about -> { showAbout(); true }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun showAbout() {
+        val version = packageManager.getPackageInfo(packageName, 0).versionName
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.action_about)
+            .setMessage("Glutenfrie Oppskrifter\nVersjon $version\n\nEn app for å samle og dele glutenfrie oppskrifter.")
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     private fun confirmDeleteAll() {
@@ -131,7 +141,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 Toast.makeText(this@MainActivity, R.string.import_error, Toast.LENGTH_SHORT).show()
             }
         }

@@ -29,7 +29,7 @@
     <string name="hint_item">Nytt element</string>
     <string name="delete_item">Slett</string>
     <string name="edit_item">Rediger</string>
-    <string name="hint_tips">Skriv tips her...</string>
+    <string name="hint_tips">Skriv tips her…</string>
     <string name="done">Ferdig</string>
     <string name="drag_handle">Dra for å flytte</string>
 
@@ -46,10 +46,11 @@
     <string name="hint_common_mistake">Vanlig feil</string>
 
     <!-- Export / Import -->
-    <string name="action_export">Eksporter oppskrifter</string>
+    <string name="action_export">Del oppskrifter</string>
     <string name="action_export_pdf">Eksporter som PDF</string>
     <string name="action_import">Importer oppskrifter</string>
     <string name="action_delete_all">Slett alle oppskrifter</string>
+    <string name="action_about">Om Gluten-Free Recipe</string>
     <string name="delete_all_confirm_title">Slett alle oppskrifter?</string>
     <string name="delete_all_confirm_message">Alle oppskrifter vil bli slettet permanent.</string>
     <string name="action_share_recipe">Del oppskrift</string>
