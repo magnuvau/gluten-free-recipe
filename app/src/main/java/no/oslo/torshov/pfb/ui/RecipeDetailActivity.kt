@@ -6,6 +6,7 @@ import android.view.GestureDetector
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -31,6 +32,20 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecipeDetailBinding
     private val viewModel: RecipeDetailViewModel by viewModels()
+    private var recipeId: Long = -1L
+
+    private val experiencesLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val date = result.data?.getStringExtra(ExperiencesActivity.RESULT_OPEN_CALENDAR_DATE)
+            if (date != null) {
+                val intent = Intent(this, CalendarActivity::class.java)
+                intent.putExtra(CalendarActivity.EXTRA_DATE, date)
+                startActivity(intent)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +54,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val recipeId = intent.getLongExtra(EXTRA_RECIPE_ID, -1L)
+        recipeId = intent.getLongExtra(EXTRA_RECIPE_ID, -1L)
         if (recipeId == -1L) { finish(); return }
 
         viewModel.loadRecipe(recipeId)
@@ -105,8 +120,16 @@ class RecipeDetailActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_share_recipe -> { shareRecipe(); true }
         R.id.action_rename_recipe -> { showRenameDialog(); true }
+        R.id.action_experiences -> { openExperiences(); true }
         R.id.action_delete_recipe -> { confirmDelete(); true }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun openExperiences() {
+        val intent = Intent(this, ExperiencesActivity::class.java)
+        intent.putExtra(ExperiencesActivity.EXTRA_RECIPE_ID, recipeId)
+        intent.putExtra(ExperiencesActivity.EXTRA_RECIPE_NAME, viewModel.recipeName.value ?: "")
+        experiencesLauncher.launch(intent)
     }
 
     private fun showCategoryDialog() {

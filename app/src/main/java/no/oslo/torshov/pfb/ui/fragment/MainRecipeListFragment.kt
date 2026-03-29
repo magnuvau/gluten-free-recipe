@@ -13,6 +13,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import no.oslo.torshov.pfb.R
 import no.oslo.torshov.pfb.data.model.Recipe
+import no.oslo.torshov.pfb.ui.ExperiencesActivity
 import no.oslo.torshov.pfb.ui.RecipeDetailActivity
 import no.oslo.torshov.pfb.ui.adapter.RecipeAdapter
 import no.oslo.torshov.pfb.ui.viewmodel.MainViewModel
@@ -54,11 +55,20 @@ class MainRecipeListFragment : Fragment() {
             if (withThickeners) R.string.empty_with_thickeners else R.string.empty_without_thickeners
         )
 
-        adapter = RecipeAdapter { recipe ->
-            val intent = Intent(requireContext(), RecipeDetailActivity::class.java)
-            intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, recipe.id)
-            startActivity(intent)
-        }
+        adapter = RecipeAdapter(
+            onClick = { recipe ->
+                val intent = Intent(requireContext(), RecipeDetailActivity::class.java)
+                intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, recipe.id)
+                startActivity(intent)
+            },
+            onLongClick = { recipe -> viewModel.toggleTested(recipe) },
+            onExperiencesClick = { recipe ->
+                val intent = Intent(requireContext(), ExperiencesActivity::class.java)
+                intent.putExtra(ExperiencesActivity.EXTRA_RECIPE_ID, recipe.id)
+                intent.putExtra(ExperiencesActivity.EXTRA_RECIPE_NAME, recipe.name)
+                startActivity(intent)
+            }
+        )
         recyclerView.adapter = adapter
 
         val liveData = if (withThickeners) viewModel.recipesWithThickeners else viewModel.recipesWithoutThickeners
@@ -73,6 +83,10 @@ class MainRecipeListFragment : Fragment() {
                 selectedCategory = null
             }
             applyFilter()
+        }
+
+        viewModel.recipesWithExperiences.observe(viewLifecycleOwner) { ids ->
+            adapter.recipesWithExperiences = ids
         }
     }
 

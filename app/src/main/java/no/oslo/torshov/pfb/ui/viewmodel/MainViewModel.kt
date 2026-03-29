@@ -16,9 +16,15 @@ import no.oslo.torshov.pfb.data.repository.RecipeRepository
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = RecipeRepository(AppDatabase.getInstance(application).recipeDao())
+    private val experienceDao = AppDatabase.getInstance(application).recipeExperienceDao()
 
     private val _recipes = MutableLiveData<List<Recipe>>(emptyList())
     val recipes: LiveData<List<Recipe>> = _recipes
+
+    val pendingCalendarDate = MutableLiveData<String?>(null)
+
+    private val _recipesWithExperiences = MutableLiveData<Set<Long>>(emptySet())
+    val recipesWithExperiences: LiveData<Set<Long>> = _recipesWithExperiences
 
     private val thickenerRegex = Regex("[Ee]4\\d\\d")
 
@@ -51,6 +57,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun refresh() {
         viewModelScope.launch {
             _recipes.value = repository.getAll()
+            _recipesWithExperiences.value = experienceDao.getRecipeIdsWithExperiences().toSet()
         }
     }
 
@@ -87,24 +94,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun toggleTested(recipe: Recipe) {
+        viewModelScope.launch {
+            repository.update(recipe.copy(tested = !recipe.tested))
+            _recipes.value = repository.getAll()
+        }
+    }
+
     fun deleteAllRecipes() {
         viewModelScope.launch {
             repository.deleteAll()
             _recipes.value = emptyList()
-        }
-    }
-
-    fun deleteRecipe(recipe: Recipe) {
-        viewModelScope.launch {
-            repository.delete(recipe)
-            _recipes.value = repository.getAll()
-        }
-    }
-
-    fun undoDelete(recipe: Recipe) {
-        viewModelScope.launch {
-            repository.add(recipe)
-            _recipes.value = repository.getAll()
         }
     }
 }

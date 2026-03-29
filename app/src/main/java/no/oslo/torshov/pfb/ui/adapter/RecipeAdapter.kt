@@ -8,15 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import no.oslo.torshov.pfb.data.model.Recipe
 import no.oslo.torshov.pfb.databinding.ItemRecipeBinding
 
-class RecipeAdapter(private val onClick: (Recipe) -> Unit) :
-    ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DiffCallback()) {
+class RecipeAdapter(
+    private val onClick: (Recipe) -> Unit,
+    private val onLongClick: (Recipe) -> Unit,
+    private val onExperiencesClick: (Recipe) -> Unit
+) : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DiffCallback()) {
+
+    var recipesWithExperiences: Set<Long> = emptySet()
+        set(value) { field = value; notifyDataSetChanged() }
 
     inner class ViewHolder(private val binding: ItemRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recipe: Recipe) {
             binding.textRecipeName.text = recipe.name
+            binding.iconTested.visibility = if (recipe.tested && recipe.id !in recipesWithExperiences) android.view.View.VISIBLE else android.view.View.GONE
+            binding.iconExperiences.visibility = if (recipe.id in recipesWithExperiences) android.view.View.VISIBLE else android.view.View.GONE
+            binding.iconExperiences.setOnClickListener { onExperiencesClick(recipe) }
             binding.root.setOnClickListener { onClick(recipe) }
+            binding.root.setOnLongClickListener { onLongClick(recipe); true }
         }
     }
 

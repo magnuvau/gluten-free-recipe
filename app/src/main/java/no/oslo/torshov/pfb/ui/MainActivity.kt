@@ -25,6 +25,11 @@ import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_OPEN_CALENDAR_DATE = "open_calendar_date"
+        private const val CALENDAR_TAB_INDEX = 2
+    }
+
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
 
@@ -43,8 +48,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = getString(when (position) {
                 0 -> R.string.tab_with_thickeners
-                1 -> R.string.tab_without_thickeners
-                else -> R.string.tab_calendar
+                else -> R.string.tab_without_thickeners
             })
         }.attach()
 
@@ -56,6 +60,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        val date = intent.getStringExtra(EXTRA_OPEN_CALENDAR_DATE)
+        if (date != null) {
+            openCalendar(date)
+            return
+        }
         handleIncomingIntent(intent)
     }
 
@@ -77,8 +86,15 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.action_delete_all -> { confirmDeleteAll(); true }
+        R.id.action_calendar -> { openCalendar(null); true }
         R.id.action_about -> { showAbout(); true }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun openCalendar(date: String?) {
+        val intent = Intent(this, CalendarActivity::class.java)
+        if (date != null) intent.putExtra(CalendarActivity.EXTRA_DATE, date)
+        startActivity(intent)
     }
 
     private fun showAbout() {

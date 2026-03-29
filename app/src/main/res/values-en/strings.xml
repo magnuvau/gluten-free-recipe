@@ -69,6 +69,12 @@
 
     <!-- Rename / Edit -->
     <string name="action_rename_recipe">Rename</string>
+    <string name="action_experiences">Experiences</string>
+    <string name="experiences_title">Experiences</string>
+    <string name="experience_add">Add experience</string>
+    <string name="experience_date_label">Date</string>
+    <string name="experience_note_hint">Notes from this bake…</string>
+    <string name="experience_empty">No experiences recorded yet.</string>
     <string name="rename_recipe">Rename recipe</string>
     <string name="save">Save</string>
 </resources>

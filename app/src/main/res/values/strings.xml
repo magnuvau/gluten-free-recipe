@@ -69,6 +69,12 @@
 
     <!-- Rename / Edit -->
     <string name="action_rename_recipe">Gi nytt navn</string>
+    <string name="action_experiences">Erfaringer</string>
+    <string name="experiences_title">Erfaringer</string>
+    <string name="experience_add">Legg til erfaring</string>
+    <string name="experience_date_label">Dato</string>
+    <string name="experience_note_hint">Notater fra baksten…</string>
+    <string name="experience_empty">Ingen erfaringer registrert ennå.</string>
     <string name="rename_recipe">Gi oppskriften nytt navn</string>
     <string name="save">Lagre</string>
 </resources>

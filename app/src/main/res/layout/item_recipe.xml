@@ -24,6 +24,26 @@
             android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <ImageView
+            android:id="@+id/iconExperiences"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_event_note"
+            android:contentDescription="@null"
+            android:tint="?attr/colorSecondary"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iconTested"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_done"
+            android:contentDescription="@null"
+            android:tint="?attr/colorPrimary"
+            android:visibility="gone" />
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_chevron_right"

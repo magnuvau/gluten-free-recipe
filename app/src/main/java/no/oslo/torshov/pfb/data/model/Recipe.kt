@@ -9,6 +9,7 @@ data class Recipe(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String,
     val category: String = RecipeCategory.OTHER,
+    val tested: Boolean = false,
     val ingredients: MutableList<String> = mutableListOf(),
     val steps: MutableList<String> = mutableListOf(),
     val tips: MutableList<String> = mutableListOf(),
