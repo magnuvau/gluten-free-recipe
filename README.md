@@ -1,4 +1,4 @@
-# Glutenfrie Oppskrifter
+# Glutenfri oppskrift
 
 An Android app for managing gluten-free recipes, built with Kotlin and MVVM architecture.
 
@@ -6,37 +6,42 @@ An Android app for managing gluten-free recipes, built with Kotlin and MVVM arch
 
 - **Recipe management** — add, edit, rename and delete recipes
 - **Ingredients & steps** — inline editing with long-press drag-to-reorder
-- **Categories** — filter recipes by type (Brød, Flatbrød, Kaker, Kjeks, Boller, Rundstykker, Scones, Muffins, Vafler, Pannekaker, Annet)
+- **Categories** — filter recipes by type (Bread, Flatbread, Cakes, Cookies, Buns, Rolls, Scones, Muffins, Waffles, Pancakes, Other); localised based on device language
 - **Sorted recipes** — recipes sorted alphabetically, emojis in names ignored when sorting
 - **Thickener tabs** — separate views for recipes with (E400–E499) and without thickeners
 - **Tips & common mistakes** — freetext tabs per recipe
-- **Calendar** — day-by-day notes
+- **Tested tracking** — long-press a recipe to mark it as tested; shown with a checkmark icon
+- **Erfaringer (Experiences)** — log notes per bake with date; accessible from recipe menu or recipe list icon; marking a recipe as tested is automatic when the first experience is added
+- **Calendar** — browse experiences by date; tap a day to see all experiences registered that day
 - **Export / Import** — share recipes as JSON or PDF
 - **Delete all** — clear all recipes at once (with confirmation)
+- **Localisation** — Norwegian (Bokmål) and English, based on device language
 - **Bundled recipes** — 21 pre-loaded recipes, sorted by category, restored automatically if deleted
 
 ## Tech Stack
 
 - Kotlin
 - MVVM (ViewModel + LiveData)
-- Room (local database)
+- Room (local database, v6)
 - ViewPager2 + TabLayout
 - Material Design 3
 - KSP (Kotlin Symbol Processing)
+- kizitonwose/calendar-view 2.5.0
 
 ## Package Structure
 
 ```
 no.oslo.torshov.pfb
 ├── data
-│   ├── db          # Room database, DAOs, type converters
-│   ├── model       # Entity classes (Recipe, DayNote, RecipeCategory)
+│   ├── db          # Room database, DAOs, migrations, type converters
+│   ├── model       # Entity classes (Recipe, DayNote, RecipeCategory, RecipeExperience)
 │   └── repository  # RecipeRepository, RecipeJsonSerializer, RecipePdfExporter
 └── ui
     ├── adapter     # RecyclerView and ViewPager adapters
-    ├── fragment    # List, freetext, calendar and day note fragments
+    ├── fragment    # List, freetext, calendar fragments
     ├── viewmodel   # MainViewModel, RecipeDetailViewModel
-    └── (root)      # MainActivity, RecipeDetailActivity
+    └── (root)      # MainActivity, RecipeDetailActivity, ExperiencesActivity,
+                    # DateExperiencesActivity, CalendarActivity
 ```
 
 ## Recipe JSON Format
@@ -48,16 +53,18 @@ Recipes can be imported/exported as JSON:
   "version": 1,
   "recipes": [
     {
-      "name": "Oppskrift navn",
-      "category": "Brød",
-      "ingredients": ["ingrediens 1", "ingrediens 2"],
-      "steps": ["steg 1", "steg 2"],
-      "tips": ["tips 1"],
-      "commonMistakes": ["vanlig feil 1"]
+      "name": "Recipe name",
+      "category": "bread",
+      "ingredients": ["ingredient 1", "ingredient 2"],
+      "steps": ["step 1", "step 2"],
+      "tips": ["tip 1"],
+      "commonMistakes": ["common mistake 1"]
     }
   ]
 }
 ```
+
+> **Note:** `category` is stored as a stable English key (e.g. `bread`, `cakes`, `waffles`). Display names are resolved from string resources based on device locale.
 
 ## Bundled Recipes
 
