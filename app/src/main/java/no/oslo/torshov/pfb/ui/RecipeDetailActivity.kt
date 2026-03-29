@@ -59,7 +59,7 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         viewModel.loadRecipe(recipeId)
         viewModel.recipeName.observe(this) { binding.toolbar.title = it }
-        viewModel.category.observe(this) { binding.categoryChip.text = it }
+        viewModel.category.observe(this) { binding.categoryChip.text = RecipeCategory.displayName(this, it) }
         binding.categoryChip.setOnClickListener { showCategoryDialog() }
 
         binding.viewPager.adapter = RecipePagerAdapter(this)
@@ -134,11 +134,12 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     private fun showCategoryDialog() {
         val categories = RecipeCategory.ALL.toTypedArray()
+        val displayNames = categories.map { RecipeCategory.displayName(this, it) }.toTypedArray()
         val currentCategory = viewModel.category.value ?: RecipeCategory.OTHER
         val checkedIndex = categories.indexOf(currentCategory).coerceAtLeast(0)
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.category_title)
-            .setSingleChoiceItems(categories, checkedIndex) { dialog, which ->
+            .setSingleChoiceItems(displayNames, checkedIndex) { dialog, which ->
                 viewModel.updateCategory(categories[which])
                 dialog.dismiss()
             }

@@ -6,7 +6,7 @@ An Android app for managing gluten-free recipes, built with Kotlin and MVVM arch
 
 - **Recipe management** — add, edit, rename and delete recipes
 - **Ingredients & steps** — inline editing with long-press drag-to-reorder
-- **Categories** — filter recipes by type (Brød, Flatbrød, Kaker, Kjeks, Boller, Rundstykker, Scones, Muffins, Vaffler, Pannekaker, Annet)
+- **Categories** — filter recipes by type (Brød, Flatbrød, Kaker, Kjeks, Boller, Rundstykker, Scones, Muffins, Vafler, Pannekaker, Annet)
 - **Sorted recipes** — recipes sorted alphabetically, emojis in names ignored when sorting
 - **Thickener tabs** — separate views for recipes with (E400–E499) and without thickeners
 - **Tips & common mistakes** — freetext tabs per recipe

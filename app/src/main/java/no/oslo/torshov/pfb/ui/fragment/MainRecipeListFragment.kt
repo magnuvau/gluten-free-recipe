@@ -13,6 +13,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import no.oslo.torshov.pfb.R
 import no.oslo.torshov.pfb.data.model.Recipe
+import no.oslo.torshov.pfb.data.model.RecipeCategory
 import no.oslo.torshov.pfb.ui.ExperiencesActivity
 import no.oslo.torshov.pfb.ui.RecipeDetailActivity
 import no.oslo.torshov.pfb.ui.adapter.RecipeAdapter
@@ -95,13 +96,13 @@ class MainRecipeListFragment : Fragment() {
         if (selectedCategory != null && selectedCategory !in categories) selectedCategory = null
 
         chipGroup.removeAllViews()
-        addChip(getString(R.string.category_all), selected = selectedCategory == null) {
+        addChip(getString(R.string.category_all), key = null, selected = selectedCategory == null) {
             selectedCategory = null
             updateChipSelection()
             applyFilter()
         }
         categories.forEach { cat ->
-            addChip(cat, selected = selectedCategory == cat) {
+            addChip(RecipeCategory.displayName(requireContext(), cat), key = cat, selected = selectedCategory == cat) {
                 selectedCategory = cat
                 updateChipSelection()
                 applyFilter()
@@ -109,9 +110,10 @@ class MainRecipeListFragment : Fragment() {
         }
     }
 
-    private fun addChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    private fun addChip(label: String, key: String?, selected: Boolean, onClick: () -> Unit) {
         val chip = Chip(requireContext()).apply {
             text = label
+            tag = key
             isCheckable = true
             isChecked = selected
             setOnClickListener { onClick() }
@@ -124,7 +126,7 @@ class MainRecipeListFragment : Fragment() {
             val chip = chipGroup.getChildAt(i) as? Chip ?: continue
             chip.isChecked = when (i) {
                 0 -> selectedCategory == null
-                else -> chip.text == selectedCategory
+                else -> chip.tag == selectedCategory
             }
         }
     }

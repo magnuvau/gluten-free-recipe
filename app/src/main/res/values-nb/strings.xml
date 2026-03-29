@@ -12,6 +12,17 @@
     <string name="day_note_hint">Skriv notater for denne dagen…</string>
     <string name="category_title">Velg kategori</string>
     <string name="category_all">Alle</string>
+    <string name="category_bread">Brød</string>
+    <string name="category_flatbread">Flatbrød</string>
+    <string name="category_cakes">Kaker</string>
+    <string name="category_cookies">Kjeks</string>
+    <string name="category_buns">Boller</string>
+    <string name="category_rolls">Rundstykker</string>
+    <string name="category_scones">Scones</string>
+    <string name="category_muffins">Muffins</string>
+    <string name="category_waffles">Vafler</string>
+    <string name="category_pancakes">Pannekaker</string>
+    <string name="category_other">Annet</string>
     <string name="add_recipe">Legg til oppskrift</string>
     <string name="hint_recipe_name">Oppskriftsnavn</string>
     <string name="add">Legg til</string>

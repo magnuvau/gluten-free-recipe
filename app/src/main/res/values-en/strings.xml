@@ -12,6 +12,17 @@
     <string name="day_note_hint">Write notes for this day…</string>
     <string name="category_title">Select category</string>
     <string name="category_all">All</string>
+    <string name="category_bread">Bread</string>
+    <string name="category_flatbread">Flatbread</string>
+    <string name="category_cakes">Cakes</string>
+    <string name="category_cookies">Cookies</string>
+    <string name="category_buns">Buns</string>
+    <string name="category_rolls">Rolls</string>
+    <string name="category_scones">Scones</string>
+    <string name="category_muffins">Muffins</string>
+    <string name="category_waffles">Waffles</string>
+    <string name="category_pancakes">Pancakes</string>
+    <string name="category_other">Other</string>
     <string name="add_recipe">Add recipe</string>
     <string name="hint_recipe_name">Recipe name</string>
     <string name="add">Add</string>
