@@ -60,7 +60,10 @@
     <string name="hint_common_mistake">Common mistake</string>
 
     <!-- Export / Import -->
-    <string name="action_export">Share recipes</string>
+    <string name="action_export">Share…</string>
+    <string name="action_sync">Sync with other device</string>
+    <string name="share_all">All recipes</string>
+    <string name="share_favourites">Favourites</string>
     <string name="action_export_pdf">Export as PDF</string>
     <string name="action_import">Import recipes</string>
     <string name="action_delete_all">Delete all recipes</string>
@@ -71,6 +74,7 @@
     <string name="action_share_recipe">Share recipe</string>
     <string name="export_subject">Gluten-free recipes</string>
     <string name="import_success">%d recipe(s) imported</string>
+    <string name="sync_success">%1$d recipe(s), %2$d experience(s) synced</string>
     <string name="import_error">Could not read the file</string>
 
     <!-- Delete -->
@@ -84,6 +88,7 @@
     <!-- Rename / Edit -->
     <string name="action_rename_recipe">Rename</string>
     <string name="action_change_emoji">Change icon</string>
+    <string name="action_edit">Edit…</string>
     <string name="action_add_favourite">Add to favourites</string>
     <string name="action_remove_favourite">Remove from favourites</string>
     <string name="action_experiences">Experiences</string>

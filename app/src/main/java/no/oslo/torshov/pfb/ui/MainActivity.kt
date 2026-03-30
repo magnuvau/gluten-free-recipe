@@ -103,7 +103,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        R.id.action_export -> { exportRecipesAsJson(); true }
+        R.id.action_export -> { showShareDialog(); true }
+        R.id.action_sync -> { exportSync(); true }
         R.id.action_export_pdf -> { exportRecipesAsPdf(); true }
         R.id.action_import -> {
             importLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
@@ -153,6 +154,75 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showShareDialog() {
+        val thickenerRegex = Regex("[Ee]4\\d\\d")
+        val options = listOf(
+            getString(R.string.share_all),
+            getString(R.string.share_favourites),
+            getString(R.string.tab_with_thickeners),
+            getString(R.string.tab_without_thickeners)
+        )
+        val checked = BooleanArray(4)
+        val checkboxes = mutableListOf<com.google.android.material.checkbox.MaterialCheckBox>()
+
+        val dp16 = (16 * resources.displayMetrics.density).toInt()
+        val container = android.widget.LinearLayout(this).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            setPadding(dp16, dp16 / 2, dp16, dp16 / 2)
+        }
+
+        fun updateEnabled() {
+            val allChecked = checkboxes[0].isChecked
+            for (i in 1..3) {
+                checkboxes[i].isEnabled = !allChecked
+                if (allChecked) {
+                    checkboxes[i].isChecked = false
+                    checked[i] = false
+                }
+            }
+        }
+
+        options.forEachIndexed { i, label ->
+            val cb = com.google.android.material.checkbox.MaterialCheckBox(this).apply {
+                text = label
+                isChecked = false
+                setPadding(0, dp16 / 2, 0, dp16 / 2)
+                setOnCheckedChangeListener { _, isChecked ->
+                    checked[i] = isChecked
+                    if (i == 0) updateEnabled()
+                }
+            }
+            checkboxes.add(cb)
+            container.addView(cb)
+        }
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.action_export)
+            .setView(container)
+            .setPositiveButton(R.string.action_export) { _, _ ->
+                if (checked.none { it }) return@setPositiveButton
+                viewModel.exportRecipesFiltered({ recipe ->
+                    (checked[0]) ||
+                    (checked[1] && recipe.favourite) ||
+                    (checked[2] && recipe.ingredients.any { thickenerRegex.containsMatchIn(it) }) ||
+                    (checked[3] && recipe.ingredients.none { thickenerRegex.containsMatchIn(it) })
+                }) { json ->
+                    val file = java.io.File(cacheDir, "recipes.json")
+                    file.writeText(json)
+                    val uri = androidx.core.content.FileProvider.getUriForFile(this, "${packageName}.fileprovider", file)
+                    val shareIntent = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
+                        type = "application/json"
+                        putExtra(android.content.Intent.EXTRA_STREAM, uri)
+                        putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.export_subject))
+                        addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    startActivity(android.content.Intent.createChooser(shareIntent, getString(R.string.action_export)))
+                }
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
     private fun exportRecipesAsJson() {
         viewModel.exportRecipes { json ->
             val file = File(cacheDir, "recipes.json")
@@ -168,18 +238,43 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun exportSync() {
+        viewModel.exportSync { json ->
+            val file = File(cacheDir, "recipes_sync.json")
+            file.writeText(json)
+            val uri = FileProvider.getUriForFile(this, "${packageName}.fileprovider", file)
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "application/json"
+                putExtra(Intent.EXTRA_STREAM, uri)
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.action_sync))
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.action_sync)))
+        }
+    }
+
     private fun importFromUri(uri: Uri) {
         lifecycleScope.launch {
             try {
                 val json = withContext(Dispatchers.IO) {
                     contentResolver.openInputStream(uri)?.bufferedReader()?.readText()
                 } ?: return@launch
-                viewModel.importRecipes(json) { count ->
-                    Toast.makeText(
-                        this@MainActivity,
-                        getString(R.string.import_success, count),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                if (no.oslo.torshov.pfb.data.repository.RecipeJsonSerializer.isSyncJson(json)) {
+                    viewModel.importSync(json) { recipes, experiences ->
+                        Toast.makeText(
+                            this@MainActivity,
+                            getString(R.string.sync_success, recipes, experiences),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    viewModel.importRecipes(json) { count ->
+                        Toast.makeText(
+                            this@MainActivity,
+                            getString(R.string.import_success, count),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             } catch (_: Exception) {
                 Toast.makeText(this@MainActivity, R.string.import_error, Toast.LENGTH_SHORT).show()

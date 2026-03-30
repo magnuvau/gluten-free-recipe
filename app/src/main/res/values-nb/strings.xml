@@ -60,7 +60,10 @@
     <string name="hint_common_mistake">Vanlig feil</string>
 
     <!-- Export / Import -->
-    <string name="action_export">Del oppskrifter</string>
+    <string name="action_export">Del…</string>
+    <string name="action_sync">Synkroniser…</string>
+    <string name="share_all">Alle oppskrifter</string>
+    <string name="share_favourites">Favoritter</string>
     <string name="action_export_pdf">Eksporter som PDF</string>
     <string name="action_import">Importer oppskrifter</string>
     <string name="action_delete_all">Slett alle oppskrifter</string>
@@ -71,6 +74,7 @@
     <string name="action_share_recipe">Del oppskrift</string>
     <string name="export_subject">Glutenfrie oppskrifter</string>
     <string name="import_success">%d oppskrift(er) importert</string>
+    <string name="sync_success">%1$d oppskrift(er), %2$d erfaring(er) synkronisert</string>
     <string name="import_error">Kunne ikke lese filen</string>
 
     <!-- Delete -->
@@ -84,6 +88,7 @@
     <!-- Rename / Edit -->
     <string name="action_rename_recipe">Gi nytt navn</string>
     <string name="action_change_emoji">Endre ikon</string>
+    <string name="action_edit">Rediger…</string>
     <string name="action_add_favourite">Legg til i favoritter</string>
     <string name="action_remove_favourite">Fjern fra favoritter</string>
     <string name="action_experiences">Erfaringer</string>

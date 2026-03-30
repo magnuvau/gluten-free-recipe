@@ -80,6 +80,67 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun exportRecipesFiltered(filter: (Recipe) -> Boolean, onReady: (String) -> Unit) {
+        viewModelScope.launch {
+            onReady(RecipeJsonSerializer.toJson(repository.getAll().filter(filter)))
+        }
+    }
+
+    fun exportSync(onReady: (String) -> Unit) {
+        viewModelScope.launch {
+            val recipes = repository.getAll()
+            val expMap = recipes.associate { recipe ->
+                recipe.id to experienceDao.getForRecipe(recipe.id)
+            }
+            onReady(RecipeJsonSerializer.toSyncJson(recipes, expMap))
+        }
+    }
+
+    fun importSync(json: String, onComplete: (recipes: Int, experiences: Int) -> Unit) {
+        viewModelScope.launch {
+            val data = RecipeJsonSerializer.fromSyncJson(json)
+            val existing = repository.getAll()
+            var newRecipeCount = 0
+            val nameToId = mutableMapOf<String, Long>()
+            existing.forEach { nameToId[it.name] = it.id }
+
+            data.recipes.forEach { candidate ->
+                val match = existing.find { it.name == candidate.name &&
+                    it.ingredients.sorted() == candidate.ingredients.sorted() }
+                if (match == null) {
+                    val id = repository.add(candidate)
+                    nameToId[candidate.name] = id
+                    newRecipeCount++
+                } else {
+                    nameToId[candidate.name] = match.id
+                    if (match.tested != candidate.tested || match.favourite != candidate.favourite) {
+                        repository.update(match.copy(
+                            tested = match.tested || candidate.tested,
+                            favourite = match.favourite || candidate.favourite
+                        ))
+                    }
+                }
+            }
+
+            var newExpCount = 0
+            data.experiencesByRecipeName.forEach { (recipeName, exps) ->
+                val recipeId = nameToId[recipeName] ?: return@forEach
+                val existing = experienceDao.getForRecipe(recipeId)
+                exps.forEach { (date, note) ->
+                    if (existing.none { it.date == date && it.note == note }) {
+                        experienceDao.insert(no.oslo.torshov.pfb.data.model.RecipeExperience(
+                            recipeId = recipeId, date = date, note = note))
+                        newExpCount++
+                    }
+                }
+            }
+
+            _recipes.value = repository.getAll()
+            _recipesWithExperiences.value = experienceDao.getRecipeIdsWithExperiences().toSet()
+            onComplete(newRecipeCount, newExpCount)
+        }
+    }
+
     fun importRecipes(json: String, onComplete: (Int) -> Unit) {
         viewModelScope.launch {
             val candidates = RecipeJsonSerializer.fromJson(json)

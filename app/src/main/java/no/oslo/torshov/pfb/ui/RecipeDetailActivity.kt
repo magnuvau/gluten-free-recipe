@@ -128,9 +128,17 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_share_recipe -> { shareRecipe(); true }
-        R.id.action_rename_recipe -> { showRenameDialog(); true }
-        R.id.action_toggle_favourite -> { viewModel.toggleFavourite(); true }
-        R.id.action_change_emoji -> { showChangeEmojiDialog(); true }
+        R.id.action_edit -> {
+            val options = arrayOf(getString(R.string.action_rename_recipe), getString(R.string.action_change_emoji))
+            MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.action_edit)
+                .setItems(options) { _, which ->
+                    if (which == 0) showRenameDialog() else showChangeEmojiDialog()
+                }
+                .show()
+            true
+        }R.id.action_toggle_favourite -> { viewModel.toggleFavourite(); true }
+        
         R.id.action_experiences -> { openExperiences(); true }
         R.id.action_delete_recipe -> { confirmDelete(); true }
         else -> super.onOptionsItemSelected(item)

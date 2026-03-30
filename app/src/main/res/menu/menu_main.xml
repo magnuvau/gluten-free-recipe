@@ -7,6 +7,9 @@
         android:id="@+id/action_export"
         android:title="@string/action_export" />
     <item
+        android:id="@+id/action_sync"
+        android:title="@string/action_sync" />
+    <item
         android:id="@+id/action_export_pdf"
         android:title="@string/action_export_pdf" />
     <item
