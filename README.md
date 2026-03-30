@@ -5,24 +5,26 @@ An Android app for managing gluten-free recipes, built with Kotlin and MVVM arch
 ## Features
 
 - **Recipe management** — add, edit, rename and delete recipes
+- **Emoji icons** — assign up to 2 emojis per recipe via a visual picker; ignored when sorting alphabetically
 - **Ingredients & steps** — inline editing with long-press drag-to-reorder
-- **Categories** — filter recipes by type (Bread, Flatbread, Cakes, Cookies, Buns, Rolls, Scones, Muffins, Waffles, Pancakes, Other); localised based on device language
-- **Sorted recipes** — recipes sorted alphabetically, emojis in names ignored when sorting
-- **Thickener tabs** — separate views for recipes with (E400–E499) and without thickeners
-- **Tips & common mistakes** — freetext tabs per recipe
+- **Categories** — filter recipes by type (Bread, Flatbread, Cakes, Cookies, Buns, Rolls, Scones, Muffins, Waffles, Pancakes, Other); localised based on device language; only categories with matching recipes are shown
+- **Thickener tabs** — three tabs: `+ konsistensmidler` (with E400–E499 thickeners), `− konsistensmidler` (without), and ⭐ Favourites
+- **Favourites** — star any recipe; dedicated tab shows only starred recipes
 - **Tested tracking** — long-press a recipe to mark it as tested; shown with a checkmark icon
 - **Erfaringer (Experiences)** — log notes per bake with date; accessible from recipe menu or recipe list icon; marking a recipe as tested is automatic when the first experience is added
 - **Calendar** — browse experiences by date; tap a day to see all experiences registered that day
-- **Export / Import** — share recipes as JSON or PDF
+- **Tips & common mistakes** — freetext tabs per recipe
+- **Share (Del…)** — export a filtered selection of recipes as JSON (all, favourites, + thickeners, − thickeners) or as PDF
+- **Sync (Synkroniser…)** — export a full sync JSON including experiences, tested status and favourites; importing merges recipes and experiences without duplication, suitable for syncing between your own devices
 - **Delete all** — clear all recipes at once (with confirmation)
 - **Localisation** — Norwegian (Bokmål) and English, based on device language
-- **Bundled recipes** — 21 pre-loaded recipes, sorted by category, restored automatically if deleted
+- **Bundled recipes** — 23 pre-loaded recipes with emojis, sorted by category, restored automatically if deleted
 
 ## Tech Stack
 
 - Kotlin
 - MVVM (ViewModel + LiveData)
-- Room (local database, v6)
+- Room (local database, v8)
 - ViewPager2 + TabLayout
 - Material Design 3
 - KSP (Kotlin Symbol Processing)
@@ -44,9 +46,11 @@ no.oslo.torshov.pfb
                     # DateExperiencesActivity, CalendarActivity
 ```
 
-## Recipe JSON Format
+## JSON Formats
 
-Recipes can be imported/exported as JSON:
+### Share format
+
+Exported by **Del…** — recipes only, no experiences:
 
 ```json
 {
@@ -54,6 +58,7 @@ Recipes can be imported/exported as JSON:
   "recipes": [
     {
       "name": "Recipe name",
+      "emoji": "🍞",
       "category": "bread",
       "ingredients": ["ingredient 1", "ingredient 2"],
       "steps": ["step 1", "step 2"],
@@ -64,7 +69,34 @@ Recipes can be imported/exported as JSON:
 }
 ```
 
-> **Note:** `category` is stored as a stable English key (e.g. `bread`, `cakes`, `waffles`). Display names are resolved from string resources based on device locale.
+### Sync format
+
+Exported by **Synkroniser…** — full data including experiences:
+
+```json
+{
+  "version": 1,
+  "sync": true,
+  "recipes": [
+    {
+      "name": "Recipe name",
+      "emoji": "🍞",
+      "category": "bread",
+      "favourite": false,
+      "tested": true,
+      "ingredients": ["ingredient 1"],
+      "steps": ["step 1"],
+      "tips": [],
+      "commonMistakes": [],
+      "experiences": [
+        { "date": "2024-01-15", "note": "Turned out great" }
+      ]
+    }
+  ]
+}
+```
+
+> **Note:** `category` is stored as a stable English key (e.g. `bread`, `cakes`, `waffles`). Display names are resolved from string resources based on device locale. The `"sync": true` flag distinguishes sync files from regular share files on import.
 
 ## Bundled Recipes
 
